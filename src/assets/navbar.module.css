@@ -1,0 +1,12 @@
+.buttonlogin {
+    padding: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-color: "rgb(97,61,43)";
+    color: "rgb(97,61,43)";
+    font-weight: 300;
+}
+
+.display {
+    background-color: black;
+}

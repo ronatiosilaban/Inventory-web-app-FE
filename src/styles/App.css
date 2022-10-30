@@ -1,0 +1,38 @@
+.body {
+    padding:100px;
+  background-color: #12679d;
+  height: 100vh;
+  display: flex;
+  
+  
+  }
+  
+  .App{
+    background-color: #12679d;
+    height: 100vh;
+    
+  }
+  
+  .form{
+    width: 30vw;
+    height: 50vh;
+    padding-top: 100px;
+    margin-left: 35vw;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+  }
+  
+  
+  
+  
+  .App-header {
+    color: white;
+    height: 25vh;
+  }
+  
+  .image{
+    width: 15vw;
+    margin-left: 1vw;
+  }
+  

@@ -1,3 +1,16 @@
+# Inventory web app
+
+is a simple inventory web application, which can be used to record a list of goods and transactions in and out of an item
+
+# Teach
+
+1.React JS,
+3.Socket Io,
+4.Axios,
+5.Material Ui,
+6.React Bootstarp,
+7.CSS
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

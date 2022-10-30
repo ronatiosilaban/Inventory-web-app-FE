@@ -1,0 +1,99 @@
+.container{
+    background-color: #E6E6E6;
+    max-width: 90vw;
+    min-width: 70vw;
+    margin: 5vw;
+    min-height: 78vh;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.container h1{
+    text-align: center;
+}
+
+.image{
+ 
+   max-width: 25vw;
+   max-height: 55vh;
+}
+
+.flex{
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.name{
+    max-width: 40vw;
+    margin-left: 1vw;
+    width: 30vw;
+    font-weight: 900;
+    font-size: 20px;
+    min-height: 2vw;
+    padding: 10px;
+    top:0
+}
+
+.text{
+    max-width: 60vw;
+    margin-left: 1vw;
+    width: 30vw;
+    font-weight: 900;
+    font-size: 20px;
+    min-height: 3vw;
+    padding: 10px;
+}
+.title{
+    display: flex;
+    max-width: 90vw;
+    min-width: 60vw;
+}
+.button{
+    text-align: right;
+    justify-content: right;
+}
+
+/* .forms{
+   margin-left: 5vw;
+   width:50vw
+}
+
+.form{
+    width:50%
+} */
+.form{
+    width:50%
+}
+
+/* .form{
+    width:40vw;
+} */
+
+.forms{
+    padding-bottom: 5px;
+    margin-left: 5vw;
+   width:50vw
+}
+.ImageIcon{
+    color:white;
+    display: flex;
+    padding: 8px;
+    height: 40px;
+    width: 100px;
+    background-color: rgb(211,47,47);
+    border-radius: 5px;
+    padding-bottom: 5px;
+    margin-left: 5vw;
+   
+}
+    
+
+
+
+.ImageIcon p{
+    font-size: 15px;
+}

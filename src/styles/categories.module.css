@@ -1,0 +1,151 @@
+:root {
+    --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+    --orange: #fca61f;
+    --black: #242d49;
+    --gray: #788097;
+    --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+    --pink: #FF919D;
+    --glass: rgba(255, 255, 255, 0.54);
+    --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+    --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+    --activeItem: #f799a354;
+  }
+
+.coba{
+
+    margin: 50px;
+}
+.Container{
+    margin-top: 20px;
+    border: none;
+    background-color: #fff;
+    border-radius: 15px;
+    position: relative;
+    min-height: 95vh;
+    padding: 30px;
+}
+.image{
+    width: 15vw;
+    margin-left: 1vw;
+}
+
+.display{
+    display: flex;
+    width: 100vw;
+    
+}
+
+.width{
+    width: 10vw;
+}
+
+
+
+
+.dashboard{
+ 
+    font-family: 'Bungee Spice', cursive;
+    font-family: 'Inter', sans-serif;
+}
+
+.tag{
+    display: flex;
+}
+
+.icons{
+        margin-top: 35px;
+        width: 25px;
+        margin-right: 20px;
+}
+
+.icon{
+    width: 40px;
+    margin-right: 20px;
+}
+
+.count{
+    display: flex;
+    font-size: 10px;
+    font-size: 20px;
+    
+}
+.count p{
+    padding-top: 5px;
+    margin-right: 5vw;
+    padding-left: 35px;
+}
+
+.displayCont{
+    width :15vw;
+    height: 20vh;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px;
+}
+
+.displayCont span{ 
+    padding-top: 5px;
+    font-size: 15px;
+    margin-left: 15px;
+
+}
+
+.buttons{
+    width: 5vw;
+}
+
+
+.buttonModals button{
+  margin: 10px;
+}
+
+.item{
+    align-items: flex-start;
+    text-align: right;
+}
+
+.listItem{
+    display: flex;
+    text-align: left;
+    padding: 5px;
+    background-color: rgb(238,238,238);
+}
+.h5{
+    margin:5px;
+    margin-left: 8px;
+    font-size: 18px;
+   
+}
+.listItem div{
+    font-size:25px;
+    
+ }
+
+ .Length{
+    display: flex;
+    background-color: #fff;
+    margin-top: 30px;
+    min-width: 250px;
+    
+
+ }
+
+.divs{
+    width: 30%;
+    padding: 20px;
+ }
+
+ .jumlah {
+    width: 70%;
+    padding: 20px;
+    text-align: center;
+    color: rgb(62,178,217);
+ }
+ .iconLength{
+    font-size: 50px;
+    color: rgb(62,178,217)
+ }
+
+.jumlah span{
+    font-size: 15px;
+ }

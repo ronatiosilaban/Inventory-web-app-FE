@@ -1,0 +1,102 @@
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.preview{
+    margin-top: 50px; 
+    margin-left: 50px;
+}
+.previews{
+    margin-top: 0; 
+    margin-left: 0; 
+}
+.input{
+    margin-top: 20px;
+}
+
+
+.prev{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.prevs{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.button{
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    padding: 4px 0 5px;
+    border: 0;
+    box-sizing: content-box;
+    background: none;
+    height: 1.4375em;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0;
+    width: 90%;
+    -webkit-animation-name: mui-auto-fill-cancel;
+    animation-name: mui-auto-fill-cancel;
+    -webkit-animation-duration: 10ms;
+    animation-duration: 10ms;
+    padding: 16.5px 14px;
+    height: 40px;
+    margin-top: 20px !important;
+   
+
+}
+
+.display{
+    margin: 20px;
+}
+.form{
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    padding: 4px 0 5px;
+    border: 0;
+    box-sizing: content-box;
+    background: none;
+    height: 1.4375em;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0;
+    width: 90%;
+    -webkit-animation-name: mui-auto-fill-cancel;
+    animation-name: mui-auto-fill-cancel;
+    -webkit-animation-duration: 10ms;
+    animation-duration: 10ms;
+    padding: 16.5px 14px;
+   
+   
+}
+
+.uploads{
+    border-color: #A64B2A;
+    background-color: #F03861;
+    width: 90px;
+    padding: 7px;
+    color: #ffff; 
+    border-radius: 10px; 
+
+}
+
+.ImageIcon{
+    color:white;
+    display: flex;
+    padding: 8px;
+    height: 40px;
+    width: 100px;
+    background-color: rgb(211,47,47);
+    border-radius: 5px;
+
+}
+
+.ImageIcon p{
+  
+}
