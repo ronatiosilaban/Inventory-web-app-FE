@@ -1,9 +1,11 @@
+//module import start
 import Sidebar from "../components/Sidebar/Sidebar";
 import ListBarang from "../components/listbarang/HomePage";
 import { Box } from "@mui/system";
 import { Stack } from "@mui/material";
 import Length from "../components/listbarang/length";
 import { useState } from "react";
+//module import end
 
 export default function Home(theme) {
   const title = "Home";

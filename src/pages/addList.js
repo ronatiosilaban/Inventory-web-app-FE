@@ -1,3 +1,4 @@
+//module import start
 import * as React from "react";
 import Select from "@mui/material/Select";
 import cssModules from "../styles/add.module.css";
@@ -19,6 +20,7 @@ import { useMutation } from "react-query";
 import Alert from "@mui/material/Alert";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Link } from "react-router-dom";
+//module import end
 
 export default function AddList() {
   const title = "Add List";
@@ -36,9 +38,9 @@ export default function AddList() {
     desc: "",
   });
   const [message, setMessage] = useState();
-  console.log("form", form);
 
   let navigate = useNavigate();
+  //router get data start
   let { data: Category } = useQuery("productsCache", async () => {
     const response = await API.get("getCategorys");
     return response.data.data.user;
@@ -55,7 +57,9 @@ export default function AddList() {
   useEffect(() => {
     getSupliers();
   }, []);
+  //router get data end
 
+  //handle change start
   const handleChangeCategori = (e) => {
     const {
       target: { value },
@@ -88,9 +92,9 @@ export default function AddList() {
       setPreview(url);
     }
   };
+  //handle change end
 
-  console.log(form, "amout");
-
+  //submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();
@@ -122,7 +126,7 @@ export default function AddList() {
       console.log("error", error);
     }
   });
-  console.log("oree", preview);
+
   return (
     <div>
       <div>{message && message}</div>

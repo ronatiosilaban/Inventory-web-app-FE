@@ -1,3 +1,4 @@
+//import module start
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -9,6 +10,7 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { API } from "../../../config/api";
 import Alert from "@mui/material/Alert";
+//import module end
 
 export default function EditSuplier({
   show,
@@ -23,6 +25,8 @@ export default function EditSuplier({
     address: "",
     phone: "",
   });
+
+  //router get data & set data to state
 
   const getSupplierId = async () => {
     try {
@@ -40,9 +44,10 @@ export default function EditSuplier({
   useEffect(() => {
     getSupplierId();
   }, [show]);
-  console.log("editSuplier", form);
 
   const { name, phone, address } = form;
+
+  //handle changes values
 
   const handleChange = (e) => {
     setForm({
@@ -51,6 +56,7 @@ export default function EditSuplier({
     });
   };
 
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();

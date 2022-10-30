@@ -1,3 +1,4 @@
+//import module start
 import React, { useRef, useState } from "react";
 import { Box } from "@mui/system";
 import { SLayout, SMain } from "../Layout/styles";
@@ -40,11 +41,14 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { API } from "../../config/api";
 import { PATH_FILE } from "../../IP/ip";
+//import module end
 
 const Sidebar = () => {
   const searchRef = useRef(null);
   const { setTheme, theme } = useContext(ThemeContext);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  //router get data
   let { data: profile } = useQuery("profileCache", async () => {
     const response = await API.get("/getProfiles");
     return response.data.data;
@@ -55,6 +59,7 @@ const Sidebar = () => {
   const [_, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
 
+  // handle logout action
   const handleLogout = () => {
     dispatch({
       type: "LOGOUT",
@@ -63,7 +68,7 @@ const Sidebar = () => {
   };
   const role = localStorage.role;
   const data = "superAdmin";
-  console.log(role, "role");
+
   return (
     <>
       <div style={{ display: "flex", height: "100%" }}>

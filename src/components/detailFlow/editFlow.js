@@ -1,3 +1,4 @@
+//module import start
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -14,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
+//module import end
 
 export default function EditFlow({
   show,
@@ -36,10 +38,9 @@ export default function EditFlow({
   const [statusUser, setStatusUser] = useState({
     status: "",
   });
-  console.log("id", idShow);
 
   const { nameRecipients, status, date, amount } = form;
-
+  //get data & set data to state
   const getFlow = async () => {
     try {
       const response = await API.get(`/getFlows/` + idShow);
@@ -54,24 +55,25 @@ export default function EditFlow({
       return console.log(error);
     }
   };
-  console.log("form", form);
+
   useEffect(() => {
     getFlow();
   }, [show]);
 
+  //handle status data
   const handleIN = () => {
     setStatusUser({
       status: "IN",
     });
   };
 
-  console.log(amounts, "babbb");
   const handleOUT = () => {
     setStatusUser({
       status: "OUT",
     });
   };
 
+  //handle changes values
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -83,7 +85,7 @@ export default function EditFlow({
     setAmounts(form.amount);
   }, [form]);
 
-  console.log("data", form);
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();

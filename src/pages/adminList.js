@@ -1,3 +1,4 @@
+//module import start
 import React from "react";
 import cssModules from "../styles/admin.module.css";
 import { Box } from "@mui/system";
@@ -27,6 +28,7 @@ import EditAdmin from "../components/admin/modalEdit";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+//module import end
 
 const style = {
   position: "absolute",
@@ -132,6 +134,8 @@ const AdminList = (theme) => {
   const [openEdit, setOpenEdit] = React.useState(false);
   const [keyword, setKeyword] = React.useState("");
 
+  //router get data
+
   let { data: admin, refetch } = useQuery("adminCache", async () => {
     let response = await API.get(`/getUser?search_query=${keyword}`);
     setBarang(response.data.data);
@@ -139,7 +143,8 @@ const AdminList = (theme) => {
   });
 
   const length = barang?.length;
-  console.log("len", length);
+
+  //handle change start
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
@@ -151,10 +156,12 @@ const AdminList = (theme) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  //handle change end
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - length) : 0;
 
+  // modal action start
   const handleOpen = async (id) => {
     setOpen(true);
     setIdBarang(id);
@@ -190,6 +197,7 @@ const AdminList = (theme) => {
   useEffect(() => {
     refetch();
   }, [show, open, keyword]);
+  // modal action end
 
   return (
     <Box flex={5}>

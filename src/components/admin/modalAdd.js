@@ -1,3 +1,4 @@
+//import module start
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -12,6 +13,7 @@ import Alert from "@mui/material/Alert";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
+//import module end
 
 export default function AddAdmin({ show, handleClose, setMessage, message }) {
   const navigate = useNavigate();
@@ -31,7 +33,6 @@ export default function AddAdmin({ show, handleClose, setMessage, message }) {
     });
   };
 
-  console.log(form, "babbb");
   const handAdmin = () => {
     setStatusUser({
       status: "admin",
@@ -54,7 +55,6 @@ export default function AddAdmin({ show, handleClose, setMessage, message }) {
         },
       };
       const body = JSON.stringify(form, statusUser);
-      // const bodi = JSON.stringify(statusUser);
       console.log("body", body);
       const response = await API.post("/addUser", body, config);
       console.log(response.data.data);

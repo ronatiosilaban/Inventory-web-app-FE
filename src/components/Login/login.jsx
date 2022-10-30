@@ -1,4 +1,4 @@
-
+//module import start
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import { Alert } from "react-bootstrap";
 import { API } from "../../config/api";
-
+//module import end
 
 
 export default function Login() {
@@ -26,12 +26,15 @@ export default function Login() {
   const [message, setMessage] = useState(null);
   const { password,username  } = form;
 
+//handle changes values & set data to state
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
+
+  //handle submit action
 
   const handleSubmit = useMutation(async (e) => {
     try {

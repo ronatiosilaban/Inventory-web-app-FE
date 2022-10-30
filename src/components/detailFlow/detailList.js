@@ -1,3 +1,4 @@
+//module import start
 import React from "react";
 import { useQuery } from "react-query";
 import { useState, useEffect } from "react";
@@ -12,6 +13,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+//module import end
 
 const DetailList = ({ refresh }) => {
   const [barang, setBarang] = useState();
@@ -21,15 +23,14 @@ const DetailList = ({ refresh }) => {
   const [Category, setCategory] = useState();
 
   const { id } = useParams();
-  console.log("state", refresh);
+
+  //router get data & set data to state start
   let { data: list, refetch } = useQuery("listsCache", async () => {
     const response = await API.get(`/getList/` + id);
     setBarang(response.data.data);
     setIdCategory(response.data?.data?.newdata?.idCategory);
     setIdSuplier(response.data?.data?.newdata?.idSuplier);
     return response.data.data.productData;
-
-    // navigate('/product')
   });
 
   const getCategory = async () => {
@@ -58,6 +59,7 @@ const DetailList = ({ refresh }) => {
   useEffect(() => {
     refetch();
   }, [refresh]);
+  //router get data & set data to end
 
   return (
     <div>

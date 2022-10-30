@@ -1,3 +1,4 @@
+//module import start
 import React from "react";
 import cssModules from "../../styles/profile.module.css";
 import Avatar from "@mui/material/Avatar";
@@ -16,6 +17,7 @@ import Alert from "@mui/material/Alert";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+//module import end
 
 const EditProfile = (theme) => {
   let { id } = useParams();
@@ -31,12 +33,15 @@ const EditProfile = (theme) => {
     possition: "",
     address: "",
   });
+
+  //router get data
   let { data: profile } = useQuery("profileCache", async () => {
     const response = await API.get("/getProfiles");
 
     return response.data.data;
   });
 
+  //set data response to state
   useEffect(() => {
     if (profile) {
       setPreview(PATH_FILE + profile.image);
@@ -50,6 +55,8 @@ const EditProfile = (theme) => {
       });
     }
   }, [profile]);
+
+  //handle changes values data
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -61,7 +68,8 @@ const EditProfile = (theme) => {
       setPreview(url);
     }
   };
-  console.log("form", form);
+
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();

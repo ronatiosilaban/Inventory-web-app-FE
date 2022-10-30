@@ -27,9 +27,9 @@ import ComponentComplainAdmin from "./pages/complain-admin";
 import ComponentComplain from "./pages/complain-user";
 import Logger from "./pages/logger";
 //page import end
-
+//theme
 export const ThemeContext = React.createContext(null);
-
+//check token
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -41,7 +41,7 @@ const App = () => {
 
   const [isLogins, setIsLogins] = useState();
   const [login, setLogin] = useState(false);
-
+  //redirect Login
   useEffect(() => {
     // Redirect Auth
     if (state.isLogin == true) {
@@ -56,7 +56,7 @@ const App = () => {
       navigate("/");
     }
   }, [state]);
-
+  //validation Login
   const checkUser = async () => {
     try {
       const response = await API.get("/check-auth");
@@ -83,12 +83,9 @@ const App = () => {
       checkUser();
     }
   }, []);
-
+  //theme state
   const [theme, setTheme] = useState("light");
   const themeStyle = theme === "light" ? lightTheme : darkTheme;
-
-  // const isLogins = localStorage.role;
-  console.log(isLogins, "aaa");
 
   return (
     <ThemeContext.Provider value={{ setTheme, theme }}>

@@ -1,3 +1,4 @@
+//import module start
 import React from "react";
 import cssModules from "../styles/detail.module.css";
 import { Box } from "@mui/system";
@@ -27,6 +28,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { useParams } from "react-router-dom";
 import { useMutation } from "react-query";
+//import module end
 
 const style = {
   position: "absolute",
@@ -126,6 +128,8 @@ const Logger = (theme) => {
   const [barangs, setBarangs] = useState();
   const [keyword, setKeyword] = useState("");
 
+  //roter get data
+
   let { data: products, refetch } = useQuery("productCache", async () => {
     const response = await API.get(`/getLog?search_query=${keyword}`);
     setBarangs(response.data.result);
@@ -134,12 +138,10 @@ const Logger = (theme) => {
 
   const DataBarang = barangs;
   const length = DataBarang?.length;
-  console.log("len", length);
+
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
-
-  console.log("idFlow", DataBarang);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -153,14 +155,10 @@ const Logger = (theme) => {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - length) : 0;
 
-  // console.log("home", theme);
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-
-  // };
   useEffect(() => {
     refetch();
   }, [keyword]);

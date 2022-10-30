@@ -1,3 +1,4 @@
+//import module start
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -10,6 +11,7 @@ import { useMutation } from "react-query";
 import { API } from "../../../config/api";
 import Alert from "@mui/material/Alert";
 import { useParams } from "react-router-dom";
+//import module end
 
 export default function EditCategory({
   show,
@@ -19,13 +21,14 @@ export default function EditCategory({
   id,
 }) {
   const navigate = useNavigate();
-  console.log("idEdit", id);
+
   const [form, setForm] = useState({
     category: "",
   });
 
   const { category } = form;
 
+  //router get data & set data to state
   const getCategoryId = async () => {
     try {
       const response = await API.get(`/getCategory/` + id);
@@ -41,8 +44,7 @@ export default function EditCategory({
     getCategoryId();
   }, [show]);
 
-  console.log("result", category);
-
+  //handle changes values
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -50,6 +52,7 @@ export default function EditCategory({
     });
   };
 
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();

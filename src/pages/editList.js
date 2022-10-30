@@ -1,3 +1,4 @@
+//import module start
 import * as React from "react";
 import Select from "@mui/material/Select";
 import cssModules from "../styles/add.module.css";
@@ -19,9 +20,10 @@ import { useMutation } from "react-query";
 import { PATH_FILE } from "../IP/ip";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Link } from "react-router-dom";
-
 import Alert from "@mui/material/Alert";
 import { useParams } from "react-router";
+//import module end
+
 export default function EditList() {
   const title = "Edit List";
   document.title = "Inventory | " + title;
@@ -44,7 +46,7 @@ export default function EditList() {
     desc: "",
     amount: "",
   });
-
+  //router get data
   let { data: products, refetch } = useQuery("productCache", async () => {
     const response = await API.get("/getList/" + id);
     return response.data.data;
@@ -58,6 +60,7 @@ export default function EditList() {
     }
   };
 
+  //set data to state
   useEffect(() => {
     if (products) {
       setPreview(PATH_FILE + products.newdata?.image);
@@ -77,6 +80,7 @@ export default function EditList() {
     }
   }, [products]);
 
+  //router get data start
   const getCategoryId = async () => {
     try {
       const response = await API.get(`/getCategory/` + personCategory);
@@ -103,7 +107,9 @@ export default function EditList() {
     getCategoryId();
     getSupplierId();
   }, [products]);
+  //router get data end
 
+  //handle changes value start
   const handleChangeCategori = (e) => {
     const {
       target: { value },
@@ -135,7 +141,10 @@ export default function EditList() {
       setPreview(url);
     }
   };
-  console.log("all", Alldata);
+
+  //handle changes value end
+
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();

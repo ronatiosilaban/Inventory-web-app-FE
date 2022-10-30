@@ -1,3 +1,4 @@
+//module import start
 import React from "react";
 import cssModules from "../../styles/categories.module.css";
 import ModalCategories from "./modal/addCategories";
@@ -29,6 +30,7 @@ import CategoryEdit from "./modal/editCategory";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+//module import end
 
 const style = {
   position: "absolute",
@@ -133,24 +135,19 @@ const ListCategory = (theme) => {
   const [message, setMessage] = useState();
   const [keyword, setKeyword] = useState("");
 
-  const handleAdd = () => {
-    handleShows();
-  };
+  //router get data
 
   let { data: suplier, refetch } = useQuery("categoriesCache", async () => {
     const response = await API.get(`/getCategorys?search_query=${keyword}`);
-    // setMember([response.data.data])
-
     return response.data.data.user;
   });
 
   const length = suplier?.length;
-  console.log("antum", length);
+
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
 
-  console.log("itum", suplier);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -162,6 +159,12 @@ const ListCategory = (theme) => {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - length) : 0;
+
+  //handle modal action start
+
+  const handleAdd = () => {
+    handleShows();
+  };
 
   const handleOpen = async (id) => {
     setOpen(true);
@@ -191,7 +194,8 @@ const ListCategory = (theme) => {
     refetch();
     setMessage();
   }, [openEdit, keyword, show]);
-  console.log("theme", theme);
+
+  //handle modal action end
   return (
     <Box flex={3}>
       {message && message}

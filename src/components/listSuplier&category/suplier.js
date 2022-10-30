@@ -1,3 +1,4 @@
+//import module start
 import React from "react";
 import cssModules from "../../styles/suplierscategory.module.css";
 import { Box } from "@mui/system";
@@ -28,6 +29,7 @@ import EditSuplier from "./modal/editSuplier";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+//import module end
 
 const style = {
   position: "absolute",
@@ -132,20 +134,11 @@ const ListSuplier = (theme) => {
   const handleShows = () => setShow(true);
   const [openEdit, setOpenEdit] = useState(false);
   const [keyword, setKeyword] = useState("");
-  const handleAdd = () => {
-    handleShows();
-  };
 
-  const handleOpenEdit = async (id) => {
-    setOpenEdit(true);
-    setIdSuplier(id);
-  };
-
+  //router get data
   let { data: suplier, refetch } = useQuery("supliersCache", async () => {
     const response = await API.get(`/getSupliers?search_query=${keyword}`);
-    // setMember([response.data.data])
     return response.data.data.user;
-    // navigate('/product')
   });
 
   const length = suplier?.length;
@@ -162,6 +155,15 @@ const ListSuplier = (theme) => {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - length) : 0;
 
+  //handle modal action start
+  const handleAdd = () => {
+    handleShows();
+  };
+
+  const handleOpenEdit = async (id) => {
+    setOpenEdit(true);
+    setIdSuplier(id);
+  };
   const handleOpen = async (id) => {
     setOpen(true);
     setIdSuplier(id);
@@ -185,6 +187,8 @@ const ListSuplier = (theme) => {
     refetch();
     setMessage();
   }, [show, openEdit, keyword]);
+
+  //handle modal action end
   return (
     <Box flex={5}>
       {message && message}

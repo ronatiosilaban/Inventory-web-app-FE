@@ -1,3 +1,4 @@
+//module import start
 import React from "react";
 import cssModules from "../../styles/dashboard.module.css";
 import { CgExtension, CgAlbum, CgUserList, CgFormatLeft } from "react-icons/cg";
@@ -7,13 +8,13 @@ import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import { Button } from "@mui/material";
+//module import end
 const Length = ({ fresh, theme }) => {
   const Length = localStorage.length;
-  //   const [length, setLength] = useState();
+
+  //router get data
   let { data: lengths, refetch } = useQuery("LengthChace", async () => {
     const response = await API.get("getLength");
-    // setMember([response.data.data])
-    // setLength(response.data.data);
     return response.data.data;
   });
   const [open, setOpen] = useState(false);
@@ -22,7 +23,6 @@ const Length = ({ fresh, theme }) => {
     refetch();
   }, [fresh, open]);
 
-  console.log("lala", lengths);
   return (
     <Box flex={3} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       {open ? (

@@ -1,3 +1,4 @@
+//module import start
 import React from "react";
 import cssModules from "../../styles/dashboard.module.css";
 import { Box } from "@mui/system";
@@ -27,6 +28,7 @@ import ShowMoreText from "react-show-more-text";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+//module import end
 
 const style = {
   position: "absolute",
@@ -125,19 +127,17 @@ const ListBarang = ({ setFresh, theme }) => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [barangs, setBarangs] = useState();
   const [keyword, setKeyword] = useState("");
-  // let userId = ;
+
+  //router get data & set data to state
   let { data: barang, refetch } = useQuery("productsCache", async () => {
     const response = await API.get(`/getList?search_query=${keyword}`);
-    // setMember([response.data.data])
     setBarangs(response.data.data.QtyData);
 
     return response.data.data.productData;
   });
   const DataBarang = barang;
   const length = DataBarang?.length;
-  console.log("len", barangs);
 
-  console.log("isopen", DataBarang);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -149,6 +149,8 @@ const ListBarang = ({ setFresh, theme }) => {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - length) : 0;
+
+  // handle modal action start
 
   const handleOpen = async (id) => {
     setOpen(true);
@@ -173,7 +175,7 @@ const ListBarang = ({ setFresh, theme }) => {
     refetch();
   }, [keyword]);
 
-  console.log("home", theme);
+  // handle modal action end
   return (
     <Box>
       <Container>

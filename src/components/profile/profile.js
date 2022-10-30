@@ -1,3 +1,4 @@
+//module import start
 import cssModules from "../../styles/profile.module.css";
 import Avatar from "@mui/material/Avatar";
 import { Button } from "@mui/material";
@@ -10,6 +11,8 @@ import { API } from "../../config/api";
 import { PATH_FILE } from "../../IP/ip";
 import { Link } from "react-router-dom";
 
+//module import end
+
 export default function Profile(theme) {
   const [state] = useContext(UserContext);
   const [show, setShow] = useState(false);
@@ -17,14 +20,12 @@ export default function Profile(theme) {
   const handleShows = () => setShow(true);
   const [message, setMessage] = useState();
 
-  console.log("local", localStorage.productCount);
+  //router get data
   let { data: profile } = useQuery("profileCache", async () => {
     const response = await API.get("/getProfiles");
     return response.data.data;
   });
 
-  console.log("profile", profile);
-  console.log("theme", theme);
   return (
     <>
       <div

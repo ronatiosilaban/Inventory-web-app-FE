@@ -1,3 +1,4 @@
+//module import start
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -9,6 +10,7 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { API } from "../../../config/api";
 import Alert from "@mui/material/Alert";
+//module import end
 
 export default function AddSuplier({ show, handleClose, setMessage, message }) {
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ export default function AddSuplier({ show, handleClose, setMessage, message }) {
 
   const { name, phone, address } = form;
 
+  //handle changes values
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -27,6 +30,7 @@ export default function AddSuplier({ show, handleClose, setMessage, message }) {
     });
   };
 
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();

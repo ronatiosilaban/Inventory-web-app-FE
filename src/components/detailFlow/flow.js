@@ -1,3 +1,4 @@
+//import module start
 import React from "react";
 import cssModules from "../../styles/detail.module.css";
 import { Box } from "@mui/system";
@@ -27,6 +28,7 @@ import ShowMoreText from "react-show-more-text";
 import { useParams } from "react-router-dom";
 import AddFlow from "./addFlow";
 import EditFlow from "./editFlow";
+//import module end
 
 const style = {
   position: "absolute",
@@ -87,6 +89,8 @@ const Flow = ({ setFresh }) => {
   const [idShow, setIdShow] = useState();
   const { id } = useParams();
 
+  //router get data & set data to state
+
   let { data: barang, refetch } = useQuery("flowsCache", async () => {
     const response = await API.get("/getFlow/" + id);
     // setMember([response.data.data])
@@ -99,14 +103,11 @@ const Flow = ({ setFresh }) => {
 
   const DataBarang = barang?.user;
   const length = DataBarang?.length;
-  console.log("len", length);
+
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
 
-  console.log("idFlow", DataBarang);
-
-  console.log("isopen", barang);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -118,6 +119,8 @@ const Flow = ({ setFresh }) => {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - length) : 0;
+
+  //handle modal action start
 
   const handleOpen = async (id) => {
     setOpen(true);
@@ -139,7 +142,8 @@ const Flow = ({ setFresh }) => {
   useEffect(() => {
     refetch();
   }, [open, show]);
-  // console.log("home", theme);
+
+  //handle modal action end
   return (
     <Box>
       <Container style={{ marginBottom: "10vh" }}>

@@ -1,3 +1,4 @@
+//import module start
 import cssModules from "../../styles/profile.module.css";
 import Avatar from "@mui/material/Avatar";
 import { Button } from "@mui/material";
@@ -13,6 +14,7 @@ import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+//import module end
 
 export default function AddProfile(theme) {
   let navigate = useNavigate();
@@ -26,6 +28,8 @@ export default function AddProfile(theme) {
     possition: "",
     address: "",
   });
+
+  //handle changes values & set data to state
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -39,7 +43,7 @@ export default function AddProfile(theme) {
     }
   };
 
-  console.log("profile", form);
+  //handle submit action
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();
@@ -64,14 +68,13 @@ export default function AddProfile(theme) {
 
       navigate("/sidebar/profiles");
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       const alert = (
         <Alert severity="error" className="py-1">
           {error.response.data.message}
         </Alert>
       );
       setMessage(alert);
-      console.log("error", error);
     }
   });
   return (

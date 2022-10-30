@@ -1,3 +1,4 @@
+//module import start
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { io } from "socket.io-client";
@@ -5,6 +6,7 @@ import { UserContext } from "../context/user";
 import React, { useEffect, useState, useContext } from "react";
 import Contact from "../components/contact";
 import Chat from "../components/text";
+//module import end
 
 let socket;
 export default function ComponentComplainAdmin() {
